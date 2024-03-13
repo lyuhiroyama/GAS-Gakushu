@@ -1,6 +1,8 @@
+// シート、テンプレートドキュメント、空のフォルダのIDを変数に代入
 const sheetID = "11DKy1mmYHqlF8dLTI0YnTaooq60G_Vzy7q-bcSy05Q8";
 const documentID = "1NsuFTzy_G2U5apR2sAP1dMCkTGgN_QEushtsfeEBB8U";
 const folderID = "1x1ITeBkaHxwHpmYGRVbbPY8Mx0K5hkZE";
+
 
 function sender() {
   const sheet = SpreadsheetApp.openById(sheetID).getSheetByName("シート１");
