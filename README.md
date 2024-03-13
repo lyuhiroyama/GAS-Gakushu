@@ -1,6 +1,6 @@
 # GAS-Gakushu
 
-こちらは私の Google Apps Script 学習の為のリポジトリです。
+こちらは私の Google Apps Script 学習の為のリポジトリになります。
 
 学習ノートへのリンクはこちら：https://lyuhiroyama.github.io/GAS-Gakushu/
 
