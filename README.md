@@ -1,3 +1,3 @@
 # GAS-Gakushu
 
-学習ノートへのリンクはこちら：lyuhiroyama.github.io/GAS-Gakushu/
+学習ノートへのリンクはこちら：https://lyuhiroyama.github.io/GAS-Gakushu/
