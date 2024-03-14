@@ -17,7 +17,7 @@ function sender() {
   // 上記の'data'配列の１行目（項目部分）を排除。
   const rows = data.slice(1);
 
-
+  // forEach文を使用して、rows配列の各要素に対して以下の処理を実行。
   rows.forEach((row)=> {
 
     // テンプレートをコピーし、保存先を'folder'に指定。'file'へ代入。
