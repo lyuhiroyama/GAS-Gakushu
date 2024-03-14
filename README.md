@@ -2,10 +2,6 @@
 
 こちらは私の Google Apps Script 学習の為のリポジトリになります。
 
-学習ノートへのリンクはこちら：
-
-https://lyuhiroyama.github.io/GAS-Gakushu/
-
 GASを利用したデモンストレーション動画はこちら：
 
 https://www.youtube.com/watch?v=-m4G5zmY7dc
@@ -14,4 +10,6 @@ https://www.youtube.com/watch?v=-m4G5zmY7dc
 
 https://github.com/lyuhiroyama/GAS-Gakushu/blob/main/gasCode.gs
 
+学習ノートへのリンクはこちら：
 
+https://lyuhiroyama.github.io/GAS-Gakushu/
