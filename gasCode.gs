@@ -22,13 +22,17 @@ function sender() {
 
     // テンプレートをコピーし、保存先を'folder'に指定。'file'へ代入。
     const file = template.makeCopy(folder);
+    // DocumentAppクラスの getBody()メソッドを使い、本文情報を抽出。'body'へ代入。
     const document = DocumentApp.openById(file.getId());
     const body = document.getBody();
+    // 本文中のプレースホルダーにデータを置き換える。
     body.replaceText("{LAST}",row[0]);
     body.replaceText("{FIRST}",row[1]);
     body.replaceText("{ID}",row[2]);
     body.replaceText("{DATE}",row[3]);
+    // ドキュメント名をお客様名を含んだタイトルへ修正。
     document.setName(row[0]+"様の予約確認メール");
+    
     Logger.log(row);
   })
 }
