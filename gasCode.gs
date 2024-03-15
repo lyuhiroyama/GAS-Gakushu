@@ -6,7 +6,7 @@ const folderID = "1x1ITeBkaHxwHpmYGRVbbPY8Mx0K5hkZE";
 
 function sender() {
 
-  // 以下のクラスのメソッド使い、シート・ドキュメント・フォルダを変数へ代入。
+  // 以下のクラスのメソッドを使い、シート・ドキュメント・フォルダを変数へ代入。
   const sheet = SpreadsheetApp.openById(sheetID).getSheetByName("シート１"); 
   const template = DriveApp.getFileById(documentID);
   const folder = DriveApp.getFolderById(folderID);
