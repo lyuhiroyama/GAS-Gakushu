@@ -36,6 +36,9 @@ function main() {
 
   //ヘッダー行の作成
   setHeaderRow();
+
+  //不要な列の削除
+  deleteUnnecessaryCols(headerText);
 }
 
 
@@ -57,6 +60,31 @@ function setHeaderRow() {
   const range = sheet.getRange(1, 1, 1,  headerText.length);
   range.setValues([headerText]);
 }
+
+//不要な列の削除
+function deleteUnnecessaryCols(header) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const max = sheet.getMaxColumns();
+  const headerLength = header.length;
+  if(max === headerLength) {
+    return;
+  }
+  sheet.deleteColumns(header.length + 1, max - header.length);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
