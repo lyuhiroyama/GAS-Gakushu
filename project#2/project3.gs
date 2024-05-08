@@ -39,6 +39,10 @@ function main() {
 
   //不要な列の削除
   deleteUnnecessaryCols(headerText);
+
+  //”日付”列の作成
+  const startDate = new Date(Date.now());
+  createDateCol(startDate);
 }
 
 
@@ -72,21 +76,25 @@ function deleteUnnecessaryCols(header) {
   sheet.deleteColumns(header.length + 1, max - header.length);
 }
 
+//”日付”列の作成
+function createDateCol(startDate) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  
+  const endDate = new Date(startDate.getTime());
+  endDate.setFullYear(endDate.getFullYear() + 1);
 
+  const dates = [];
+  const formatDate = (date) => {
+    return `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
+  };
 
+  for (let date = new Date(startDate.getTime()); date.getTime() < endDate.getTime(); date.setDate(date.getDate() + 1)) {
+    dates.push([formatDate(date)]);
+  }
 
-
-
-
-
-
-
-
-
-
-
-
-
+  const range = sheet.getRange(2, 1, dates.length, 1);
+  range.setValues(dates);
+}
 
 
 
