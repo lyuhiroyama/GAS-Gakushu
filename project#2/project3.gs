@@ -41,8 +41,11 @@ function main() {
   deleteUnnecessaryCols(headerText);
 
   //”日付”列の作成
-  const startDate = new Date(Date.now());
+  const startDate = new Date("2024/04/01");
   createDateCol(startDate);
+
+  //"四半期"列の作成
+  createQuarterCol(startDate);
 }
 
 
@@ -95,6 +98,51 @@ function createDateCol(startDate) {
   const range = sheet.getRange(2, 1, dates.length, 1);
   range.setValues(dates);
 }
+
+//"四半期"列の作成
+function createQuarterCol(startDate) {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const range = sheet.getDataRange();
+  const values = range.getValues();
+
+  const startMonth = startDate.getMonth() + 1 // getMonth() は1月を０として返す。
+
+  const getQuarter = (date) => {
+    let month = date.getMonth() + 1;
+    if (startMonth <= month && month <= startMonth + 2) {
+      return 1;
+    } else if (startMonth + 3 <= month && month <= startMonth + 5) {
+      return 2;
+    } else if (startMonth + 6 <= month && month <= startMonth + 8) {
+      return 3;
+    } else {
+      return 4;
+    };
+  }
+  for(const value of values) {
+    if(value[COL_DATE] === "日付") {
+      continue;
+    }
+    value[COL_QUARTER] = getQuarter(value[COL_DATE]);
+  }
+  range.setValues(values);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
