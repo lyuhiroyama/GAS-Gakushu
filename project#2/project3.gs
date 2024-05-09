@@ -46,6 +46,9 @@ function main() {
 
   //"四半期"列の作成
   createQuarterCol(startDate);
+
+  //"月"列の作成
+  createMonthCol();
 }
 
 
@@ -129,17 +132,21 @@ function createQuarterCol(startDate) {
 }
 
 
+//"月"列の作成
+function createMonthCol() {
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const range = sheet.getDataRange();
+  const values = range.getValues();
 
+  for(const value of values) {
+    if(value[COL_DATE] === "日付") {
+      continue;
+    }
+    value[COL_MONTH] = value[COL_DATE].getMonth() + 1; // getMonth() は1月を０として返す。
+  }
 
-
-
-
-
-
-
-
-
-
+  range.setValues(values);
+}
 
 
 
